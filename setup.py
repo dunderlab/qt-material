@@ -21,7 +21,7 @@ setup(
     author_email='yencardonaal@unal.edu.co',
     maintainer='Yeison Cardona',
     maintainer_email='yencardonaal@unal.edu.co',
-    download_url='https://github.com/UN-GCPDS/qt-material',
+    download_url='https://github.com/dunderlab/qt-material',
     install_requires=['Jinja2'],
     python_requires='>=3.7',
     include_package_data=True,
