@@ -12,7 +12,7 @@ datas += [(str(themes_path), "qt_material/themes")]
 dock_path = qt_material_path / "dock_theme.ui"
 datas += [(str(dock_path), "qt_material")]
 
-template_path = qt_material_path / "material.css.template"
+template_path = qt_material_path / "material.qss.template"
 datas += [(str(template_path), "qt_material")]
 
 resources_path = qt_material_path / "resources"

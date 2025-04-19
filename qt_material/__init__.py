@@ -59,7 +59,7 @@ else:
 import jinja2
 
 TEMPLATE_FILE = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), 'material.css.template'
+    os.path.dirname(os.path.abspath(__file__)), 'material.qss.template'
 )
 
 
