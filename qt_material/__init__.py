@@ -538,38 +538,48 @@ class QtStyleTools:
     # ----------------------------------------------------------------------
     def update_theme_event(self, parent):
         """"""
-        try:
-            density = [
-                action.text()
-                for action in self.menu_density_.actions()
-                if action.isChecked()
-            ][0]
-            theme = [
-                action.text()
-                for action in self.menu_theme_.actions()
-                if action.isChecked()
-            ][0]
-        except:
-            density = [
-                action.text
-                for action in self.menu_density_.actions()
-                if action.checked
-            ][0]
-            theme = [
-                action.text
-                for action in self.menu_theme_.actions()
-                if action.checked
-            ][0]
+        theme = None
+        density = None
 
-        self.extra_values['density_scale'] = density
+        if hasattr(self, 'menu_density_'):
+            try:
+                density = [
+                    action.text()
+                    for action in self.menu_density_.actions()
+                    if action.isChecked()
+                ][0]
+            except:
+                density = [
+                    action.text
+                    for action in self.menu_density_.actions()
+                    if action.checked
+                ][0]
 
-        self.apply_stylesheet(
-            parent,
-            theme=theme,
-            invert_secondary=theme.startswith('light'),
-            extra=self.extra_values,
-            callable_=self.update_buttons,
-        )
+        if hasattr(self, 'menu_theme_'):
+            try:
+                theme = [
+                    action.text()
+                    for action in self.menu_theme_.actions()
+                    if action.isChecked()
+                ][0]
+            except:
+                theme = [
+                    action.text
+                    for action in self.menu_theme_.actions()
+                    if action.checked
+                ][0]
+
+        if density:
+            self.extra_values['density_scale'] = density
+
+        if theme:
+            self.apply_stylesheet(
+                parent,
+                theme=theme,
+                invert_secondary=theme.startswith('light'),
+                extra=self.extra_values,
+                callable_=self.update_buttons,
+            )
 
     # ----------------------------------------------------------------------
     def update_buttons(self):

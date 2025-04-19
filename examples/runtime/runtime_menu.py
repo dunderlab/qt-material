@@ -18,5 +18,5 @@ if __name__ == "__main__":
     app = QApplication()
     frame = RuntimeStylesheets()
     frame.main.show()
-    app.exec_()
+    app.exec()
 
