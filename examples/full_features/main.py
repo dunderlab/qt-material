@@ -38,7 +38,7 @@ if hasattr(Qt, 'AA_ShareOpenGLContexts'):
 else:
     print("'Qt' object has no attribute 'AA_ShareOpenGLContexts'")
 
-app = QApplication([])
+app = QApplication(sys.argv)
 freeze_support()
 try:
     app.processEvents()
@@ -206,10 +206,12 @@ if __name__ == "__main__":
     )
 
     frame = RuntimeStylesheets()
-    try:
-        frame.main.showMaximized()
-    except:
-        frame.main.show_maximized()
+    # try:
+    #     frame.main.showMaximized()
+    # except:
+    #     frame.main.show_maximized()
+
+    frame.main.show()
 
     if hasattr(app, 'exec'):
         app.exec()
