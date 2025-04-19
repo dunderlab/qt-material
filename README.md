@@ -1,6 +1,6 @@
 # Qt-Material
 
-This is another stylesheet for **PySide6**, **PySide2**, **PyQt5** and **PyQt6**, which looks like Material Design (close enough).
+This is another stylesheet for **PySide6**, and **PyQt6**, which looks like Material Design (close enough).
 
 ![GitHub top language](https://img.shields.io/github/languages/top/un-gcpds/qt-material)
 ![PyPI - License](https://img.shields.io/pypi/l/qt-material)
@@ -12,9 +12,9 @@ This is another stylesheet for **PySide6**, **PySide2**, **PyQt5** and **PyQt6**
 [![Documentation Status](https://readthedocs.org/projects/qt-material/badge/?version=latest)](https://qt-material.readthedocs.io/en/latest/?badge=latest)
 
 There is some custom dark themes:
-![dark](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/dark.gif)
+![dark](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/dark.gif)
 And light:
-![light](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/light.gif)
+![light](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/light.gif)
 
 ## Navigation
 
@@ -178,7 +178,7 @@ pushButton_warning.setProperty('class', 'warning')
 pushButton_success.setProperty('class', 'success')
 ```
 
-![extra](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/extra.png)
+![extra](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/extra.png)
 
 ## Custom stylesheets
 
@@ -220,7 +220,7 @@ And the class style can be applied with the `setProperty` method:
 self.main.pushButton.setProperty('class', 'big_button')
 ```
 
-![extra](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/custom.png)
+![extra](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/custom.png)
 
 ## Run examples
 A window with almost all widgets (see the previous screenshots) are available to test all themes and **create new ones**.
@@ -234,7 +234,7 @@ cd examples/full_features
 python main.py --pyside6
 ```
 
-![theme](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/theme.gif)
+![theme](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/theme.gif)
 
 ## New themes
 
@@ -258,7 +258,7 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         # self.apply_stylesheet(self.main, 'light_blue.xml')
 ```
 
-![run](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/runtime.gif)
+![run](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/runtime.gif)
 
 ### Integrate stylesheets in a menu
 
@@ -275,7 +275,7 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         self.add_menu_theme(self.main, self.main.menuStyles)
 ```
 
-![menu](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/runtime_menu.gif)
+![menu](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/runtime_menu.gif)
 
 ## Create new themes
 
@@ -292,7 +292,7 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         self.show_dock_theme(self.main)
 ```
 
-![dock](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/runtime_dock.gif)
+![dock](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/runtime_dock.gif)
 
 A full set of examples are available in the [exmaples directory](https://github.com/UN-GCPDS/qt-material/blob/master/examples/runtime/)
 
@@ -382,7 +382,7 @@ extra = {
 apply_stylesheet(app, 'default', invert_secondary=False, extra=extra)
 ```
 
-![dock](https://github.com/UN-GCPDS/qt-material/raw/master/docs/source/notebooks/_images/density/density.gif)
+![dock](https://raw.githubusercontent.com/dunderlab/qt-material/master/docs/source/notebooks/_images/density.gif)
 
 ## Troubleshoots
 
