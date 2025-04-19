@@ -107,8 +107,8 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         self.custom_styles()
 
         self.set_extra(extra)
-        self.add_menu_theme(self.main, self.main.menuStyles)
         self.add_menu_density(self.main, self.main.menuDensity)
+        self.add_menu_theme(self.main, self.main.menuStyles)
         self.show_dock_theme(self.main)
 
         logo = QIcon("qt_material:/logo/logo.svg")
