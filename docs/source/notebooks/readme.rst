@@ -446,7 +446,7 @@ scale**, by default is ``0``.
     
     apply_stylesheet(app, 'default', invert_secondary=False, extra=extra)
 
-.. figure:: _images/density/density.gif
+.. figure:: _images/density.gif
    :alt: dock
 
    dock

@@ -1,0 +1,139 @@
+:root {
+  --accent: #41cd52;
+  --accent_dark: #2d8f39;
+}
+
+pre.literal-block,
+.highlight pre {
+    background-color: #fbfbfb;
+    border: none !important;
+    border-radius: 2px;
+    font-size: 75%;
+}
+
+.docutils.literal {
+    color: #41cd52;
+    padding: 1px 4px;
+    margin: 0 -2px;
+    border-radius: 2px;
+}
+
+div.nbinput.container div.input_area {
+    border: none !important;
+}
+
+a.reference {
+    border-bottom: 1px dotted #41cd52;
+    color: #41cd52;
+}
+
+a.reference:hover {
+    border-bottom: 1px solid #2d8f39;
+    color: #2d8f39;
+}
+
+h1 {
+    margin: 30px 0px 10px 0px !important;
+}
+
+.body {
+    max-width: unset !important;
+}
+
+img.logo {
+    width: 210px;
+}
+
+div.note {
+    background-color: #00ACC117;
+    border: 1px solid #00ACC15C;
+}
+
+dl:not(.docutils) tt,
+dl:not(.docutils) tt,
+dl:not(.docutils) code {
+    font-weight: bold;
+}
+
+dl:not(.docutils) tt.descname,
+dl:not(.docutils) tt.descname,
+dl:not(.docutils) code.descname {
+    font-weight: bold;
+}
+
+dl:not(.docutils) dl dt {
+        margin-bottom: 6px;
+        border: none;
+        border-left: solid 3px #ccc;
+        background: #f0f0f0;
+        color: #555;
+}
+
+.body > .highlight-ipython3 {
+    display: none;
+}
+
+.toctree-wrapper .caption-text {
+    font-size: 30.6px;
+    font-family: Noto Sans;
+    font-weight: normal;
+    margin: 30px 0px 10px 0px;
+    padding: 0;
+}
+
+.sphinxsidebarwrapper p.caption{
+    font-size: 20px;
+}
+
+.dunderlab-footer {
+    margin-top: 80px;
+    background-color: #7878780d;
+    padding: 15px 30px;
+    border: 1px solid #41cd52;
+    border-width: 3px 0 0 0;
+    border-radius: 5px;
+}
+
+dl:not(.docutils) dl dt {
+    font-family: mono, monospace;
+}
+
+dl.field-list.simple .field-odd,
+dl.field-list.simple .field-even {
+    background-color: #fff0;
+    border-left: none;
+}
+
+dl.field-list.simple .field-even + .field-even,
+dl.field-list.simple .field-odd + .field-odd {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+}
+
+dl.py.method {
+    margin-bottom: 32px;
+}
+
+dl.py.class {
+    margin-top: 64px;
+}
+
+li.toctree-l1 {
+    margin-bottom: 16px;
+}
+
+
+
+dl:not(.docutils) dt {
+    margin: 6px 0;
+    margin-top: 6px;
+    font-size: 90%;
+    line-height: normal;
+    background: #00ACC117;
+    color: #555;
+    border-top: solid 3px #00ACC15C;
+    padding: 6px;
+    font-family: mono, monospace;
+}
+

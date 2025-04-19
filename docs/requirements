@@ -1,0 +1,8 @@
+sphinx==7.0.0
+urllib3<2.0
+ipython
+ipykernel
+nbsphinx
+sphinxcontrib-bibtex
+pygments
+dunderlab-docs
