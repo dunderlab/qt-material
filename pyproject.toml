@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qt-material"
+version = "2.14"
+description = "Material inspired stylesheet for PySide2, PySide6, PyQt5 and PyQt6."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "BSD-2-Clause" }
+authors = [
+  { name = "Yeison Cardona", email = "yencardonaal@unal.edu.co" }
+]
+maintainers = [
+  { name = "Yeison Cardona", email = "yencardonaal@unal.edu.co" }
+]
+dependencies = [
+  "Jinja2"
+]
+# Useful links for PyPI/web
+[project.urls]
+Homepage = "https://github.com/dunderlab/qt-material"
+Download = "https://github.com/dunderlab/qt-material/archive/refs/tags/v2.14.tar.gz"
+
+# Classifiers identical to those in setup.py
+[project.classifiers]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.8"
+]
+
+# Packages and entry points (PEP 621 + setuptools)
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "qt_material",
+  "qt_material.resources",
+  "qt_material.resources.source"
+]
+
+[tool.setuptools.entry-points."pyinstaller40"]
+hook-dirs = "qt_material:get_hook_dirs"
