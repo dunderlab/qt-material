@@ -293,7 +293,7 @@ def add_fonts():
 def apply_stylesheet(
     app,
     theme='',
-    style=None,
+    style='Fusion',
     save_as=None,
     invert_secondary=False,
     extra={},
@@ -308,7 +308,7 @@ def apply_stylesheet(
             except:  # snake_case, true_property
                 app.style = style
         except:
-            logging.error(f"The style '{style}' does not exist.")
+            logging.warning(f"The style '{style}' does not exist.")
             pass
 
     if 'QMenu' in extra:
