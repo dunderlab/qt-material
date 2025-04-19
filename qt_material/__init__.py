@@ -515,7 +515,7 @@ class QtStyleTools:
 
     # ----------------------------------------------------------------------
     def apply_stylesheet(
-        self, parent, theme, invert_secondary=False, extra={}, callable_=None
+        self, parent, theme, invert_secondary=False, extra={}, style='Fusion', callable_=None
     ):
         """"""
         if theme == 'default':
@@ -530,6 +530,7 @@ class QtStyleTools:
             theme=theme,
             invert_secondary=invert_secondary,
             extra=extra,
+            style=style,
         )
 
         if callable_:
