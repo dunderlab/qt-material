@@ -25,12 +25,11 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.8"
 ]
-# Useful links for PyPI/web
+
 [project.urls]
 Homepage = "https://github.com/dunderlab/qt-material"
 Download = "https://github.com/dunderlab/qt-material/archive/refs/tags/v2.14.tar.gz"
 
-# Packages and entry points (PEP 621 + setuptools)
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
