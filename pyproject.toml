@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qt-material"
-version = "2.14.1"
+version = "2.14.2"
 description = "Material inspired stylesheet for PySide6 and PyQt6."
 readme = "README.md"
 requires-python = ">=3.7"
@@ -38,5 +38,5 @@ include = [
   "qt_material.resources.source"
 ]
 
-[tool.setuptools.entry-points."pyinstaller40"]
+[project.entry-points."pyinstaller40"]
 hook-dirs = "qt_material:get_hook_dirs"
