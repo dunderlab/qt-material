@@ -3,23 +3,14 @@
 /* By Yeison Cardona - Dunderlab
 /*  ------------------------------------------------------------------------  */
 
+{% set _font_size = font_size|default(13) %}
+{% set _line_height = line_height|default(13) %}
+
 *{
   color: {{secondaryTextColor}};
-
   font-family: {{font_family}};
-
-  {% if font_size %}
-    font-size: {{font_size|density(density_scale, density_interval=1)}}px;
-  {% else %}
-    font-size: {{13|density(density_scale, density_interval=1)}}px;
-  {% endif %}
-
-  {% if line_height %}
-    line-height: {{line_height|density(density_scale, density_interval=8)}}px;
-  {% else %}
-    line-height: {{13|density(density_scale, density_interval=8)}}px;
-  {% endif %}
-
+  font-size: {{_font_size|density(density_scale, density_interval=1)}}px;
+  line-height: {{_line_height|density(density_scale, density_interval=8)}}px;
   selection-background-color: {{primaryLightColor}};
   selection-color: {{primaryTextColor}};
 }
@@ -120,12 +111,7 @@ QTabWidget::pane {
 /*  ------------------------------------------------------------------------  */
 /*  Inputs  */
 
-QDateEdit,
-QDateTimeEdit,
-QSpinBox,
-QDoubleSpinBox,
 QTextEdit,
-QLineEdit,
 QPushButton {
   color: {{primaryColor}};
   background-color: {{secondaryDarkColor}};
@@ -134,22 +120,32 @@ QPushButton {
   height: {{36|density(density_scale, border=2)}}px;
 }
 
-QDateEdit,
-QDateTimeEdit,
-QSpinBox,
-QDoubleSpinBox,
+QLineEdit,
 QTreeView,
 QListView,
-QLineEdit,
 QComboBox {
   color: {{primaryTextColor}};
+  background-color: {{secondaryColor|opacity(0.75)}};
   padding-left: {{16|density(density_scale)}}px;
-  border-radius: 0px;
   border-radius: 0px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   height: {{36|density(density_scale, border=2)}}px;
+  border: 2px solid {{secondaryTextColor|opacity(0.2)}};
+  border-width: 0 0 2px 0;
+}
+
+QDateEdit,
+QDateTimeEdit,
+QSpinBox,
+QDoubleSpinBox {
+  color: {{primaryTextColor}};
   background-color: {{secondaryColor|opacity(0.75)}};
+  padding-left: {{16|density(density_scale)}}px;
+  border-radius: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: {{36|density(density_scale, border=2)}}px;
   border: 2px solid {{secondaryTextColor|opacity(0.2)}};
   border-width: 0 0 2px 0;
 }
@@ -332,17 +328,13 @@ QPushButton:flat:checked {
 QPushButton:disabled {
   color: {{secondaryLightColor|opacity(0.75)}};
   background-color: transparent;
-  border-color:  {{secondaryLightColor}};
+  border: 2px solid {{secondaryLightColor|opacity(0.75)}};
 }
 
 QPushButton:flat:disabled {
   color: {{secondaryLightColor|opacity(0.75)}};
   background-color: {{secondaryLightColor|opacity(0.25)}};
   border: none;
-}
-
-QPushButton:disabled {
-  border: 2px solid {{secondaryLightColor|opacity(0.75)}};
 }
 
 QPushButton:checked:disabled {
@@ -467,7 +459,6 @@ QGroupBox::title {
   subcontrol-origin: margin;
   subcontrol-position: top left;
   padding: {{16|density(density_scale)}}px;
-  background-color: {{secondaryDarkColor}};
   background-color: transparent;
   height: {{36|density(density_scale)}}px;
 }
@@ -477,7 +468,6 @@ QGroupBox::title {
 
 QRadioButton,
 QCheckBox {
-  spacing: {{12|density(density_scale)}}px;
   color: {{secondaryTextColor}};
   line-height: 14px;
   height: {{36|density(density_scale)}}px;
