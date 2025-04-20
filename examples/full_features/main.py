@@ -5,7 +5,7 @@ from multiprocessing import freeze_support
 
 if "--pyside6" in sys.argv:
     from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
-    from PySide6.QtCore import QTimer, Qt, QCoreApplication
+    from PySide6.QtCore import QTimer, Qt, QCoreApplication, QEvent
     from PySide6.QtGui import QIcon, QPixmap
     from PySide6.QtUiTools import QUiLoader
 
@@ -55,54 +55,62 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         super().__init__()
 
         if "--pyside6" in sys.argv:
-            self.window = QUiLoader().load("main_window.ui", self)
+            self.main = QUiLoader().load("main_window.ui", self)
+            self.main.installEventFilter(self)
             wt = "PySide6"
 
         elif "--pyqt6" in sys.argv:
-            self.window = uic.loadUi("main_window.ui", self)
+            self.main = uic.loadUi("main_window.ui", self)
             wt = "PyQt6"
 
-        self.window.setParent(self)
-        self.setCentralWidget(self.window.centralWidget())
-        self.resize(1200, 800)  # ancho x alto
-
-        self.setWindowTitle(f"{self.windowTitle()} - {wt}")
+        self.main.setWindowTitle(f"{self.main.windowTitle()} - {wt}")
 
         self.custom_styles()
         self.set_extra(extra)
-        self.add_menu_density(self, self.window.menuDensity)
-        self.add_menu_theme(self, self.window.menuStyles)
+        self.add_menu_density(self, self.main.menuDensity)
+        self.add_menu_theme(self, self.main.menuStyles)
         self.show_dock_theme(self)
 
         logo = QIcon("qt_material:/logo/logo.svg")
         logo_frame = QIcon("qt_material:/logo/logo_frame.svg")
 
         self.setWindowIcon(logo)
-        self.window.actionToolbar.setIcon(logo)
+        self.main.actionToolbar.setIcon(logo)
 
-        for i in range(self.window.listWidget_2.count()):
-            self.window.listWidget_2.item(i).setIcon(logo_frame)
+        for i in range(self.main.listWidget_2.count()):
+            self.main.listWidget_2.item(i).setIcon(logo_frame)
 
-        self.window.pushButton_file_dialog.clicked.connect(
+        self.main.pushButton_file_dialog.clicked.connect(
             lambda: QFileDialog.getOpenFileName(self)
         )
-        self.window.pushButton_folder_dialog.clicked.connect(
+        self.main.pushButton_folder_dialog.clicked.connect(
             lambda: QFileDialog.getExistingDirectory(self)
         )
+
+        self.resize(1200, 800)
+
+    # ----------------------------------------------------------------------
+    def eventFilter(self, obj, event):
+        """"""
+        if obj == self.main and event.type() == QEvent.Close:
+            print(event)
+            QApplication.quit()
+            return False
+        return super().eventFilter(obj, event)
 
     # ----------------------------------------------------------------------
     def custom_styles(self):
         """"""
-        for i in range(self.window.toolBar_vertical.layout().count()):
-            tool_button = self.window.toolBar_vertical.layout().itemAt(i).widget()
+        for i in range(self.main.toolBar_vertical.layout().count()):
+            tool_button = self.main.toolBar_vertical.layout().itemAt(i).widget()
             tool_button.setMaximumWidth(150)
             tool_button.setMinimumWidth(150)
 
-        for r in range(self.window.tableWidget.rowCount()):
-            self.window.tableWidget.setRowHeight(r, 36)
+        for r in range(self.main.tableWidget.rowCount()):
+            self.main.tableWidget.setRowHeight(r, 36)
 
-        for r in range(self.window.tableWidget_2.rowCount()):
-            self.window.tableWidget_2.setRowHeight(r, 36)
+        for r in range(self.main.tableWidget_2.rowCount()):
+            self.main.tableWidget_2.setRowHeight(r, 36)
 
 
 T0 = 1000
@@ -131,6 +139,5 @@ if __name__ == "__main__":
     )
 
     frame = RuntimeStylesheets()
-    # frame.main.showMaximized()
-    frame.show()
+    frame.main.show()
     app.exec()
