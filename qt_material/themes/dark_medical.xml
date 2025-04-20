@@ -5,6 +5,6 @@
   <color name="secondaryColor">#354b82</color>
   <color name="secondaryLightColor">#6f6aff</color>
   <color name="secondaryDarkColor">#31363b</color>
-  <color name="primaryTextColor">#000000</color>
+  <color name="primaryTextColor">#ffffff</color>
   <color name="secondaryTextColor">#ffffff</color>
 </resources>
