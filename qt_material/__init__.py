@@ -573,7 +573,7 @@ class QtStyleTools:
         self.dock_theme.setFloating(True)
         self.update_buttons()
         self.dock_theme.checkBox_ligh_theme.clicked.connect(
-            lambda: self.update_theme(self.main)
+            lambda: self.update_theme(self)
         )
 
         for color in self.colors:
