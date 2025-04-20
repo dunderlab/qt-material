@@ -8,13 +8,13 @@ like Material Design (close enough).
 Python Version| |GitHub last commit| |CodeFactor Grade| |Documentation
 Status|
 
-.. |GitHub top language| image:: https://img.shields.io/github/languages/top/un-gcpds/qt-material
+.. |GitHub top language| image:: https://img.shields.io/github/languages/top/dunderlab/qt-material
 .. |PyPI - License| image:: https://img.shields.io/pypi/l/qt-material
 .. |PyPI| image:: https://img.shields.io/pypi/v/qt-material
 .. |PyPI - Status| image:: https://img.shields.io/pypi/status/qt-material
 .. |PyPI - Python Version| image:: https://img.shields.io/pypi/pyversions/qt-material
-.. |GitHub last commit| image:: https://img.shields.io/github/last-commit/un-gcpds/qt-material
-.. |CodeFactor Grade| image:: https://img.shields.io/codefactor/grade/github/UN-GCPDS/qt-material
+.. |GitHub last commit| image:: https://img.shields.io/github/last-commit/dunderlab/qt-material
+.. |CodeFactor Grade| image:: https://img.shields.io/codefactor/grade/github/dunderlab/qt-material
 .. |Documentation Status| image:: https://readthedocs.org/projects/qt-material/badge/?version=latest
    :target: https://qt-material.readthedocs.io/en/latest/?badge=latest
 

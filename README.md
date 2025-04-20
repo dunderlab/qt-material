@@ -2,13 +2,13 @@
 
 This is another stylesheet for **PySide6**, and **PyQt6**, which looks like Material Design (close enough).
 
-![GitHub top language](https://img.shields.io/github/languages/top/un-gcpds/qt-material)
+![GitHub top language](https://img.shields.io/github/languages/top/dunderlab/qt-material)
 ![PyPI - License](https://img.shields.io/pypi/l/qt-material)
 ![PyPI](https://img.shields.io/pypi/v/qt-material)
 ![PyPI - Status](https://img.shields.io/pypi/status/qt-material)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qt-material)
-![GitHub last commit](https://img.shields.io/github/last-commit/un-gcpds/qt-material)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/UN-GCPDS/qt-material)
+![GitHub last commit](https://img.shields.io/github/last-commit/dunderlab/qt-material)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/dunderlab/qt-material)
 [![Documentation Status](https://readthedocs.org/projects/qt-material/badge/?version=latest)](https://qt-material.readthedocs.io/en/latest/?badge=latest)
 
 There is some custom dark themes:
