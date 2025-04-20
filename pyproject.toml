@@ -18,13 +18,6 @@ maintainers = [
 dependencies = [
   "Jinja2"
 ]
-# Useful links for PyPI/web
-[project.urls]
-Homepage = "https://github.com/dunderlab/qt-material"
-Download = "https://github.com/dunderlab/qt-material/archive/refs/tags/v2.14.tar.gz"
-
-# Classifiers identical to those in setup.py
-[project.classifiers]
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Approved :: BSD License",
@@ -32,6 +25,10 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.8"
 ]
+# Useful links for PyPI/web
+[project.urls]
+Homepage = "https://github.com/dunderlab/qt-material"
+Download = "https://github.com/dunderlab/qt-material/archive/refs/tags/v2.14.tar.gz"
 
 # Packages and entry points (PEP 621 + setuptools)
 [tool.setuptools.packages.find]
