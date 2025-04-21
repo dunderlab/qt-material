@@ -13,6 +13,7 @@ if "PySide6" in sys.modules:
     from PySide6.QtGui import (
         QFontDatabase,
         QAction,
+        QBrush,
         QColor,
         QGuiApplication,
         QPalette,
@@ -25,6 +26,7 @@ if "PySide6" in sys.modules:
 elif "PyQt6" in sys.modules:
     from PyQt6.QtGui import (
         QFontDatabase,
+        QBrush,
         QColor,
         QGuiApplication,
         QPalette,
@@ -345,6 +347,7 @@ class QtStyleTools:
     """"""
 
     extra_values = {}
+    mdi_areas = []
 
     # ----------------------------------------------------------------------
     def set_extra_colors(self, extra):
@@ -419,6 +422,11 @@ class QtStyleTools:
 
         if callable_:
             callable_()
+
+        for mdi_area in self.mdi_areas:
+            mdi_area.setBackground(
+                QBrush(QColor(os.environ.get("QTMATERIAL_SECONDARYCOLOR", "#888")))
+            )
 
     # ----------------------------------------------------------------------
     def update_theme_event(self, parent):
@@ -569,7 +577,7 @@ class QtStyleTools:
                 os.path.join(os.path.dirname(__file__), "dock_theme.ui")
             )
 
-        parent.addDockWidget(Qt.DockWidgetArea.LeftDockWidgetArea, self.dock_theme)
+        parent.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.dock_theme)
         self.dock_theme.setFloating(True)
         self.update_buttons()
         self.dock_theme.checkBox_ligh_theme.clicked.connect(
@@ -579,6 +587,10 @@ class QtStyleTools:
         for color in self.colors:
             button = getattr(self.dock_theme, f"pushButton_{color}")
             button.clicked.connect(self.set_color(parent, color))
+
+    # ----------------------------------------------------------------------
+    def register_mdi_areas(self, mdi_area):
+        self.mdi_areas.append(mdi_area)
 
 
 # ----------------------------------------------------------------------
