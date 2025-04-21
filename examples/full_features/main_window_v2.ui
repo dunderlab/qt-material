@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1844</width>
+    <width>2080</width>
     <height>1148</height>
    </rect>
   </property>
@@ -24,21 +24,21 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_22">
         <item row="0" column="0">
          <widget class="QToolBox" name="toolBox">
           <property name="currentIndex">
-           <number>13</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_22">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -332,7 +332,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -586,7 +586,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -819,7 +819,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -1194,7 +1194,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -1666,7 +1666,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -1840,7 +1840,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -2091,7 +2091,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -2394,7 +2394,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -2695,7 +2695,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -3021,7 +3021,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -3454,7 +3454,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -3923,7 +3923,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -4042,7 +4042,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -4111,7 +4111,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -4170,7 +4170,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -4559,7 +4559,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1689</width>
+             <width>1925</width>
              <height>447</height>
             </rect>
            </property>
@@ -4960,7 +4960,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
       </widget>
       <widget class="QWidget" name="page_39">
        <layout class="QGridLayout" name="gridLayout_14">
-        <item row="0" column="0">
+        <item row="0" column="1">
          <widget class="QMdiArea" name="mdiArea">
           <widget class="QWidget" name="subwindow">
            <property name="windowTitle">
@@ -4978,6 +4978,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
              <widget class="QPushButton" name="pushButton_2">
               <property name="text">
                <string>Cancel</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -5035,12 +5041,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </property>
                 <item>
                  <property name="text">
-                  <string>Male</string>
+                  <string>Female</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Female</string>
+                  <string>Male</string>
                  </property>
                 </item>
                </widget>
@@ -5088,7 +5094,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           </widget>
           <widget class="QWidget" name="subwindow_2">
            <property name="windowTitle">
-            <string>Tabs</string>
+            <string>Features</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_58">
             <item row="0" column="0">
@@ -5129,6 +5135,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   <property name="text">
                    <string>Save settings</string>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -5149,7 +5161,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           </widget>
           <widget class="QWidget" name="subwindow_3">
            <property name="windowTitle">
-            <string>pplication Preferences</string>
+            <string>Aplication Preferences</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_17">
             <item row="0" column="0">
@@ -5180,6 +5192,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <property name="text">
                  <string>Advanced</string>
                 </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
              </layout>
@@ -5195,6 +5213,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  <property name="text">
                   <string>Restore last session</string>
                  </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="1">
@@ -5208,6 +5229,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <widget class="QCheckBox" name="checkBox_3">
                  <property name="text">
                   <string>Show splash screen</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -5516,6 +5540,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <property name="pageStep">
                      <number>1</number>
                     </property>
+                    <property name="value">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Orientation::Horizontal</enum>
                     </property>
@@ -5526,6 +5553,546 @@ li.checked::marker { content: &quot;\2612&quot;; }
                </layout>
               </item>
              </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="subwindow_5">
+           <property name="windowTitle">
+            <string>Import and Analyze Data</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_39">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_23">
+              <item>
+               <widget class="QLabel" name="label_76">
+                <property name="text">
+                 <string>File path:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_17">
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_4">
+                  <property name="text">
+                   <string>/user/documents/data.csv</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_11">
+                  <property name="text">
+                   <string>Browse...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_77">
+                <property name="text">
+                 <string>Separator:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="comboBox_4">
+                <item>
+                 <property name="text">
+                  <string>(</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_78">
+                <property name="text">
+                 <string>Encoding:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="comboBox_5">
+                <item>
+                 <property name="text">
+                  <string>UTF-8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_24" stretch="0,1">
+              <item>
+               <widget class="QLabel" name="label_79">
+                <property name="text">
+                 <string>Columns to include:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_21">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_10">
+                  <property name="text">
+                   <string>Date</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_11">
+                  <property name="text">
+                   <string>Value</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_25" stretch="0,1">
+              <item>
+               <widget class="QLabel" name="label_81">
+                <property name="text">
+                 <string>Analysis type:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_22">
+                <item>
+                 <widget class="QRadioButton" name="radioButton_11">
+                  <property name="text">
+                   <string>Statistical</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="radioButton_12">
+                  <property name="text">
+                   <string>Time series</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_23">
+              <item>
+               <widget class="QPushButton" name="pushButton_12">
+                <property name="text">
+                 <string>Run Analysis</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_13">
+                <property name="text">
+                 <string>Cancel</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="subwindow_6">
+           <property name="windowTitle">
+            <string>Manage Tasks</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_41">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_80">
+              <property name="text">
+               <string>Tasklist:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="1,2">
+              <item>
+               <widget class="QListWidget" name="listWidget_8">
+                <property name="currentRow">
+                 <number>2</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Call client</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Buy groceries</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Schedule meeting</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Clean office</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_28">
+                <item>
+                 <widget class="QPushButton" name="pushButton_14">
+                  <property name="text">
+                   <string>Add</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_15">
+                  <property name="text">
+                   <string>Edit</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_16">
+                  <property name="text">
+                   <string>Remove</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_17">
+                  <property name="text">
+                   <string>Up</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_34">
+                  <property name="text">
+                   <string>Down</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <layout class="QVBoxLayout" name="verticalLayout_29">
+              <item>
+               <widget class="QLabel" name="label_82">
+                <property name="text">
+                 <string>Details:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <spacer name="horizontalSpacer_37">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_35">
+                <property name="text">
+                 <string>Save</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_36">
+                <property name="text">
+                 <string>Close</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="subwindow_7">
+           <property name="windowTitle">
+            <string>Activity Monitor</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_42">
+            <item row="0" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <item>
+               <widget class="QLabel" name="label_83">
+                <property name="text">
+                 <string>Disk:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_6">
+                <property name="value">
+                 <number>24</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_25">
+              <item>
+               <widget class="QLabel" name="label_84">
+                <property name="text">
+                 <string>RAM</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_7">
+                <property name="value">
+                 <number>85</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_26">
+              <item>
+               <widget class="QLabel" name="label_85">
+                <property name="text">
+                 <string>CPU:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_8">
+                <property name="value">
+                 <number>69</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_27">
+              <item>
+               <widget class="QLabel" name="label_86">
+                <property name="text">
+                 <string>GPU</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar_9">
+                <property name="value">
+                 <number>37</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="subwindow_8">
+           <property name="windowTitle">
+            <string>Schedule</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_49">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_87">
+              <property name="text">
+               <string>Select a date:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QCalendarWidget" name="calendarWidget_3"/>
+            </item>
+            <item row="2" column="0">
+             <layout class="QFormLayout" name="formLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_88">
+                <property name="text">
+                 <string>Time:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QTimeEdit" name="timeEdit_2"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_89">
+                <property name="text">
+                 <string>Duration:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="spinBox_3">
+                <property name="suffix">
+                 <string> minutes</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_90">
+                <property name="text">
+                 <string>Meeting Type:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_28">
+                <item>
+                 <widget class="QRadioButton" name="radioButton_10">
+                  <property name="text">
+                   <string>In-person</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="radioButton_13">
+                  <property name="text">
+                   <string>Online</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_91">
+                <property name="text">
+                 <string>Notify participants:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QCheckBox" name="checkBox_12">
+                <property name="text">
+                 <string>yes</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_29">
+              <item>
+               <spacer name="horizontalSpacer_38">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_37">
+                <property name="text">
+                 <string>Confirm</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_38">
+                <property name="text">
+                 <string>Cancel</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_39">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="subwindow_9">
+           <property name="windowTitle">
+            <string>Fail</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_55">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pushButton_39">
+              <property name="text">
+               <string>Success</string>
+              </property>
+              <property name="class" stdset="0">
+               <string>success</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -5577,7 +6144,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1844</width>
+     <width>2080</width>
      <height>24</height>
     </rect>
    </property>

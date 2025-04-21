@@ -1,0 +1,56 @@
+{
+    "Form": {
+        "x": 353,
+        "y": 10,
+        "width": 350,
+        "height": 372
+    },
+    "Features": {
+        "x": 352,
+        "y": 389,
+        "width": 441,
+        "height": 250
+    },
+    "Aplication Preferences": {
+        "x": 715,
+        "y": 8,
+        "width": 607,
+        "height": 374
+    },
+    "Preferences": {
+        "x": 7,
+        "y": 650,
+        "width": 673,
+        "height": 390
+    },
+    "Import and Analyze Data": {
+        "x": 694,
+        "y": 673,
+        "width": 294,
+        "height": 367
+    },
+    "Manage Tasks": {
+        "x": 997,
+        "y": 566,
+        "width": 325,
+        "height": 474
+    },
+    "Activity Monitor": {
+        "x": 803,
+        "y": 394,
+        "width": 520,
+        "height": 166
+    },
+    "Schedule": {
+        "x": 10,
+        "y": 7,
+        "width": 336,
+        "height": 632
+    },
+    "Fail": {
+        "x": 799,
+        "y": 568,
+        "width": 191,
+        "height": 95
+    }
+}

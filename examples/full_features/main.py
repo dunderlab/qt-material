@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import logging
 from multiprocessing import freeze_support
 
@@ -113,10 +114,17 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
                 self.main.action_widgets.setChecked(False),
                 self.main.action_tabs.setChecked(False),
                 self.main.action_examples.setChecked(True),
+                self.save_mdi_subwindow_positions(),
             )
         )
 
         self.center_window()
+        self.load_mdi_subwindow_positions()
+        if len(sys.argv) > 2:
+            self.main.stackedWidget.setCurrentIndex(2)
+        else:
+            self.main.stackedWidget.setCurrentIndex(0)
+        self.main.toolBox.setCurrentIndex(0)
 
     # ----------------------------------------------------------------------
     def eventFilter(self, obj, event):
@@ -135,11 +143,46 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
 
     # ----------------------------------------------------------------------
     def center_window(self):
-        self.main.resize(1900, 1100)
+        self.main.resize(1925, 1175)
         frame = self.frameGeometry()
         center = QApplication.primaryScreen().availableGeometry().center()
         frame.moveCenter(center)
         self.move(frame.topLeft())
+
+    # ----------------------------------------------------------------------
+    def save_mdi_subwindow_positions(self):
+        """"""
+        positions = {}
+        for w in self.main.mdiArea.subWindowList():
+            title = w.windowTitle()
+            geom = w.geometry()
+            positions[title] = {
+                "x": geom.x(),
+                "y": geom.y(),
+                "width": geom.width(),
+                "height": geom.height(),
+            }
+        # Save positions to a JSON file
+        with open("mdi_positions.json", "w") as f:
+            json.dump(positions, f, indent=4)
+
+    # ----------------------------------------------------------------------
+    def load_mdi_subwindow_positions(self):
+        """"""
+        # Return empty positions if file does not exist
+        if not os.path.exists("mdi_positions.json"):
+            return {}
+
+        # Load positions from JSON file
+        with open("mdi_positions.json", "r") as f:
+            positions = json.load(f)
+        # Apply saved geometry to each MDI subwindow
+        for w in self.main.mdiArea.subWindowList():
+            title = w.windowTitle()
+            if title in positions:
+                pos = positions[title]
+                w.setGeometry(pos["x"], pos["y"], pos["width"], pos["height"])
+        return positions
 
 
 T0 = 1000
@@ -159,7 +202,6 @@ if __name__ == "__main__":
     else:
         theme = "default"
 
-    # Set theme on in itialization
     apply_stylesheet(
         app,
         theme + ".xml",
@@ -168,5 +210,14 @@ if __name__ == "__main__":
     )
 
     frame = RuntimeStylesheets()
+
+    frame.apply_stylesheet(
+        app,
+        theme + ".xml",
+        invert_secondary=("light" in theme and "dark" not in theme),
+        extra=extra,
+    )
+
     frame.main.show()
+
     app.exec()
