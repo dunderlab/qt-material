@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qt-material"
-version = "2.2"
+version = "2.16"
 description = "Material inspired stylesheet for PySide6 and PyQt6."
 readme = "README.md"
 requires-python = ">=3.7"
