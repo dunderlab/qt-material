@@ -29,8 +29,6 @@ app = QApplication(sys.argv)
 freeze_support()
 
 app.processEvents()
-# app.setQuitOnLastWindowClosed(True)
-# app.lastWindowClosed.connect(app.quit)
 
 # Extra stylesheets
 extra = {
@@ -55,21 +53,22 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         super().__init__()
 
         if "--pyside6" in sys.argv:
-            self.main = QUiLoader().load("main_window.ui", self)
+            self.main = QUiLoader().load("main_window_v2.ui", self)
             self.main.installEventFilter(self)
             wt = "PySide6"
 
         elif "--pyqt6" in sys.argv:
-            self.main = uic.loadUi("main_window.ui", self)
+            self.main = uic.loadUi("main_window_v2.ui", self)
             wt = "PyQt6"
 
         self.main.setWindowTitle(f"{self.main.windowTitle()} - {wt}")
 
-        self.custom_styles()
         self.set_extra(extra)
+        self.register_mdi_areas(self.main.mdiArea)
         self.add_menu_density(self, self.main.menuDensity)
         self.add_menu_theme(self, self.main.menuStyles)
-        self.show_dock_theme(self)
+        self.show_dock_theme(self.main)
+        self.custom_styles()
 
         logo = QIcon("qt_material:/logo/logo.svg")
         logo_frame = QIcon("qt_material:/logo/logo_frame.svg")
@@ -80,6 +79,9 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
         for i in range(self.main.listWidget_2.count()):
             self.main.listWidget_2.item(i).setIcon(logo_frame)
 
+        for i in range(self.main.listWidget_3.count()):
+            self.main.listWidget_3.item(i).setIcon(logo_frame)
+
         self.main.pushButton_file_dialog.clicked.connect(
             lambda: QFileDialog.getOpenFileName(self)
         )
@@ -87,7 +89,34 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
             lambda: QFileDialog.getExistingDirectory(self)
         )
 
-        self.resize(1200, 800)
+        self.main.action_widgets.triggered.connect(
+            lambda: (
+                self.main.stackedWidget.setCurrentIndex(0),
+                self.main.action_tabs.setChecked(False),
+                self.main.action_widgets.setChecked(True),
+                self.main.action_examples.setChecked(False),
+            )
+        )
+
+        self.main.action_tabs.triggered.connect(
+            lambda: (
+                self.main.stackedWidget.setCurrentIndex(1),
+                self.main.action_widgets.setChecked(False),
+                self.main.action_tabs.setChecked(True),
+                self.main.action_examples.setChecked(False),
+            )
+        )
+
+        self.main.action_examples.triggered.connect(
+            lambda: (
+                self.main.stackedWidget.setCurrentIndex(2),
+                self.main.action_widgets.setChecked(False),
+                self.main.action_tabs.setChecked(False),
+                self.main.action_examples.setChecked(True),
+            )
+        )
+
+        self.center_window()
 
     # ----------------------------------------------------------------------
     def eventFilter(self, obj, event):
@@ -101,16 +130,16 @@ class RuntimeStylesheets(QMainWindow, QtStyleTools):
     # ----------------------------------------------------------------------
     def custom_styles(self):
         """"""
-        for i in range(self.main.toolBar_vertical.layout().count()):
-            tool_button = self.main.toolBar_vertical.layout().itemAt(i).widget()
-            tool_button.setMaximumWidth(150)
-            tool_button.setMinimumWidth(150)
+        self.dock_theme.setFloating(False)
+        self.dock_theme.setMinimumWidth(400)
 
-        for r in range(self.main.tableWidget.rowCount()):
-            self.main.tableWidget.setRowHeight(r, 36)
-
-        for r in range(self.main.tableWidget_2.rowCount()):
-            self.main.tableWidget_2.setRowHeight(r, 36)
+    # ----------------------------------------------------------------------
+    def center_window(self):
+        self.main.resize(1900, 1100)
+        frame = self.frameGeometry()
+        center = QApplication.primaryScreen().availableGeometry().center()
+        frame.moveCenter(center)
+        self.move(frame.topLeft())
 
 
 T0 = 1000

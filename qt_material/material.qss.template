@@ -6,7 +6,7 @@
 {% set _font_size = font_size|default(13) %}
 {% set _line_height = line_height|default(13) %}
 
-*{
+* {
   color: {{secondaryTextColor}};
   font-family: {{font_family}};
   font-size: {{_font_size|density(density_scale, density_interval=1)}}px;
@@ -22,46 +22,53 @@
 /*  ------------------------------------------------------------------------  */
 /*  Custom colors  */
 
-.danger{
+.danger {
   color: {{danger}};
   background-color: transparent;
 }
 
-.warning{
+.warning {
   color: {{warning}};
   background-color: transparent;
 }
 
-.success{
+.success {
   color: {{success}};
   background-color: transparent;
 }
 
-.danger:disabled{
+.danger:disabled {
   color: {{danger|opacity(0.4)}};
   border-color: {{danger|opacity(0.4)}};
 }
 
-.warning:disabled{
+.warning:disabled {
   color: {{warning|opacity(0.4)}};
   border-color: {{warning|opacity(0.4)}};
 }
 
-.success:disabled{
+.success:disabled {
   color: {{success|opacity(0.4)}};
   border-color: {{success|opacity(0.4)}};
 }
 
-.danger:flat:disabled{
+.danger:flat:disabled {
   background-color: {{danger|opacity(0.1)}};
 }
 
-.warning:flat:disabled{
+.warning:flat:disabled {
   background-color: {{warning|opacity(0.1)}};
 }
 
-.success:flat:disabled{
+.success:flat:disabled {
   background-color: {{success|opacity(0.1)}};
+}
+
+/*  ------------------------------------------------------------------------  */
+/*  Custom properties  */
+
+*[frameless="true"] {
+  border: none;
 }
 
 /*  ------------------------------------------------------------------------  */
@@ -83,6 +90,14 @@ QFrame.fill_background {
   background-color: {{secondaryColor}};
   border: 2px solid {{secondaryColor}};
   border-radius: 4px;
+}
+
+QFrame[colored="true"]{
+  border: 2px solid {{primaryColor}};
+}
+
+QFrame[colored="true"]:disabled {
+  border: 2px solid {{primaryColor|opacity(0.1)}};
 }
 
 QSplitter {
@@ -163,11 +178,22 @@ QTextEdit {
   background-color: {{secondaryColor}};
 }
 
+QPlainTextEdit:disabled {
+  color: {{secondaryTextColor|opacity(0.4)}};
+  background-color: {{secondaryDarkColor|opacity(0.2)}};
+  border: 2px solid {{secondaryLightColor|opacity(0.2)}};
+}
+
+QTextEdit:disabled {
+  color: {{primaryColor|opacity(0.4)}};
+  background-color: {{secondaryColor}};
+  border: 2px solid {{primaryColor|opacity(0.2)}};
+}
+
 QDateEdit:disabled,
 QDateTimeEdit:disabled,
 QSpinBox:disabled,
 QDoubleSpinBox:disabled,
-QTextEdit:disabled,
 QLineEdit:disabled {
   color: {{secondaryTextColor|opacity(0.2)}};
   background-color: {{secondaryColor|opacity(0.3)}};
@@ -819,6 +845,14 @@ QProgressBar::chunk {
   background-color: {{primaryColor}};
 }
 
+QProgressBar:disabled {
+  background-color: {{secondaryColor}};
+}
+
+QProgressBar::chunk:disabled {
+  background-color: {{primaryColor|opacity(0.1)}};
+}
+
 /*  ------------------------------------------------------------------------  */
 /*  QScrollBar  */
 
@@ -835,7 +869,7 @@ QScrollBar:vertical {
 }
 
 QScrollBar::handle {
-  background: {{primaryColor|opacity(0.1)}};
+  background: {{primaryColor|opacity(0.3)}};
 }
 
 QScrollBar::handle:horizontal {
@@ -868,6 +902,15 @@ QScrollBar::add-page:vertical,
 QScrolLBar:vertical {
     background: transparent;
 }
+
+QScrollBar:disabled {
+    background: {{secondaryColor|opacity(0.4)}};
+}
+
+QScrollBar::handle:disabled {
+    background: {{primaryColor|opacity(0.1)}};
+}
+
 
 /*  ------------------------------------------------------------------------  */
 /*  QScrollBar-Big  */
@@ -923,13 +966,11 @@ QSlider:vertical {
 
 QSlider::groove:horizontal {
   height: 4px;
-  background: #393939;
   margin: 0 {{12|density(density_scale)}}px;
 }
 
 QSlider::groove:vertical {
   width: 4px;
-  background: #393939;
   margin: {{12|density(density_scale)}}px 0;
 }
 
@@ -940,7 +981,7 @@ QSlider::handle:horizontal {
   margin: -{{18|density(density_scale)}}px -{{9|density(density_scale)}}px;
 }
 
-QSlider::handle:vertical {
+QSlider::handle {
   image: url(icon:/primary/slider.svg);
   width: {{18|density(density_scale)}}px;
   height: {{18|density(density_scale)}}px;
@@ -955,6 +996,16 @@ QSlider::sub-page {
 background: {{primaryColor}};
 }
 
+QSlider::handle:vertical:disabled,
+QSlider::handle:horizontal:disabled {
+  image: url(icon:/disabled/slider.svg);
+}
+
+QSlider::sub-page:disabled {
+background: {{secondaryLightColor}};
+}
+
+
 /*  ------------------------------------------------------------------------  */
 /*  QLabel  */
 
@@ -965,7 +1016,7 @@ QLabel {
 }
 
 QLabel:disabled {
-  color: {{secondaryTextColor|opacity(0.2)}}
+  color: {{secondaryTextColor|opacity(0.3)}}
 }
 
 /*  ------------------------------------------------------------------------  */
@@ -1102,8 +1153,11 @@ QListView::item:selected:focus {
   selection-color: {{primaryTextColor}}; /* For Windows */
 }
 
+QListView,
+QTreeView,
 QTableView {
   selection-background-color: {{primaryColor|opacity(0.2)}};
+  alternate-background-color: {{primaryColor|opacity(0.1)}};
 }
 
 QTableView:focus {
@@ -1149,6 +1203,42 @@ QTreeView::branch:has-children:!has-siblings:adjoins-item {
 
 QTreeView QHeaderView::section {
   border: none;
+}
+
+QListView:disabled,
+QTreeView:disabled {
+  background-color: {{secondaryLightColor|opacity(0.5)}};
+}
+
+QListView::item:disabled,
+QTreeView::item:disabled {
+  color: {{secondaryTextColor|opacity(0.2)}};
+  selection-color: {{secondaryTextColor|opacity(0.2)}}; /* For Windows */
+}
+
+QTreeView::branch:closed:has-children:has-siblings:disabled,
+QTreeView::branch:closed:has-children:!has-siblings:disabled {
+  image: url(icon:/disabled/branch-closed.svg);
+}
+
+QTreeView::branch:open:has-children:!has-siblings:disabled,
+QTreeView::branch:open:has-children:has-siblings:disabled {
+  image: url(icon:/disabled/branch-open.svg);
+}
+
+QTreeView QHeaderView::section:disabled {
+  color: {{secondaryTextColor|opacity(0.2)}};
+  selection-color: {{secondaryTextColor|opacity(0.2)}}; /* For Windows */
+}
+
+QListView::item:selected:disabled,
+QListView::item:selected:focus:disabled,
+QTreeView::item:selected:disabled,
+QTreeView::item:selected:focus:disabled {
+  background-color: {{primaryColor|opacity(0.1)}};
+  selection-background-color: {{primaryColor|opacity(0.1)}};
+  color: {{primaryTextColor|opacity(0.1)}};
+  selection-color: {{primaryTextColor|opacity(0.1)}}; /* For Windows */
 }
 
 
@@ -1229,10 +1319,6 @@ QTableCornerButton::section {
   border-color: {{secondaryDarkColor}};
 }
 
-QTableView {
-  alternate-background-color: {{secondaryColor|opacity(0.7)}};
-}
-
 QHeaderView {
   border: none;
 }
@@ -1265,6 +1351,20 @@ QLCDNumber {
   background-color:{{primaryColor|opacity(0.1)}};
   border: 1px solid {{primaryColor|opacity(0.3)}};
   border-radius: 4px;
+}
+
+QLCDNumber:disabled  {
+  color: {{secondaryLightColor}};
+  background-color: {{secondaryLightColor|opacity(0.4)}};
+  border: 1px solid {{secondaryLightColor|opacity(0.3)}};
+  border-radius: 4px;
+}
+
+
+/*  ------------------------------------------------------------------------  */
+/* QDial */
+QDial {
+
 }
 
 /*  ------------------------------------------------------------------------  */
