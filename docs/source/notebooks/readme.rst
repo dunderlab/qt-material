@@ -1,9 +1,6 @@
 Qt-Material
 ===========
 
-This is another stylesheet for **PySide6**, and **PyQt6**, which looks
-like Material Design (close enough).
-
 |GitHub top language| |PyPI - License| |PyPI| |PyPI - Status| |PyPI -
 Python Version| |GitHub last commit| |CodeFactor Grade| |Documentation
 Status|
@@ -18,438 +15,212 @@ Status|
 .. |Documentation Status| image:: https://readthedocs.org/projects/qt-material/badge/?version=latest
    :target: https://qt-material.readthedocs.io/en/latest/?badge=latest
 
-There is some custom dark themes: |dark| And light: |light|
+Qt-Material is a modern stylesheet library for **PySide6** and
+**PyQt6**, inspired by Material Design.
 
-.. |dark| image:: _images/dark.gif
-.. |light| image:: _images/light.gif
+It provides: - Dark and light themes - Custom accent colors and fonts -
+Runtime theme switching - Export to ``.qss`` + ``.rcc`` for use in C++
+or standalone apps - Density scaling for accessibility
 
-Navigation
-----------
+Theme Previews
+--------------
 
--  `Install <#install>`__
--  `Usage <#usage>`__
--  `Themes <#themes>`__
--  `Custom colors <#custom-colors>`__
--  `Usage <#usage>`__
--  `Light themes <#light-themes>`__
--  `Environ variables <#environ-variables>`__
--  `Alternative QPushButtons and custom
-   fonts <#alternative-qpushbuttons-and-custom-fonts>`__
--  `Custom stylesheets <#custom-stylesheets>`__
--  `Run examples <#run-examples>`__
--  `New themes <#new-themes>`__
--  `Change theme in runtime <#change-theme-in-runtime>`__
--  `Export theme <#export-theme>`__
--  `Density scale <#density-scale>`__
--  `Troubleshoots <#troubleshoots>`__
+Qt-Material includes a variety of built-in themes, both in dark and
+light modes.
 
-Install
--------
+**Dark themes:**
 
-.. code:: ipython3
+.. figure:: _images/dark.gif
+   :alt: dark
 
-    pip install qt-material
+   dark
 
-Usage
------
+**Light themes:**
+
+.. figure:: _images/light.gif
+   :alt: light
+
+   light
+
+Installation
+------------
+
+.. code:: bash
+
+   pip install -U qt-material
+
+Or from source:
+
+.. code:: bash
+
+   git clone https://github.com/dunderlab/qt-material.git
+   cd qt-material
+   pip install .
+
+Documentation
+-------------
+
+Comprehensive usage guides, examples, and API reference are available
+online:
+
+-  📚 `Read the Docs – Official
+   Documentation <https://qt-material.readthedocs.io/en/latest/>`__
+-  📦 `PyPI – Package Distribution
+   Only <https://pypi.org/project/qt-material/>`__
+
+Basic Usage
+-----------
+
+To apply a Material Design-inspired stylesheet to your Qt application,
+simply use ``apply_stylesheet()`` from the ``qt_material`` module.
+
+Example using PySide6
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
     import sys
     from PySide6 import QtWidgets
-    # from PySide2 import QtWidgets
-    # from PyQt5 import QtWidgets
     from qt_material import apply_stylesheet
     
-    # create the application and the main window
+    # Create application instance and main window
     app = QtWidgets.QApplication(sys.argv)
     window = QtWidgets.QMainWindow()
     
-    # setup stylesheet
+    # Apply a built-in theme
     apply_stylesheet(app, theme='dark_teal.xml')
     
-    # run
+    # Show the window and execute
     window.show()
-    app.exec_()
+    app.exec()
+
+Optional: Using PyQt5 or PyQt6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Just replace the import line:
+
+.. code:: ipython3
+
+    from PyQt5 import QtWidgets
+    # or
+    from PyQt6 import QtWidgets
 
 Themes
 ------
+
+To view all available built-in themes, use the ``list_themes()``
+function:
 
 .. code:: ipython3
 
     from qt_material import list_themes
     
-    list_themes()
+    print(list_themes())
 
+Example output:
 
-.. parsed-literal::
+.. code:: text
 
-    WARNING:root:qt_material must be imported after PySide or PyQt!
+   ['dark_amber.xml',
+    'dark_blue.xml',
+    'dark_cyan.xml',
+    'dark_lightgreen.xml',
+    'dark_pink.xml',
+    'dark_purple.xml',
+    'dark_red.xml',
+    'dark_teal.xml',
+    'dark_yellow.xml',
+    'light_amber.xml',
+    'light_blue.xml',
+    'light_cyan.xml',
+    'light_cyan_500.xml',
+    'light_lightgreen.xml',
+    'light_pink.xml',
+    'light_purple.xml',
+    'light_red.xml',
+    'light_teal.xml',
+    'light_yellow.xml']
 
-
-
-
-.. parsed-literal::
-
-    ['dark_amber.xml',
-     'dark_blue.xml',
-     'dark_cyan.xml',
-     'dark_lightgreen.xml',
-     'dark_pink.xml',
-     'dark_purple.xml',
-     'dark_red.xml',
-     'dark_teal.xml',
-     'dark_yellow.xml',
-     'light_amber.xml',
-     'light_blue.xml',
-     'light_cyan.xml',
-     'light_cyan_500.xml',
-     'light_lightgreen.xml',
-     'light_pink.xml',
-     'light_purple.xml',
-     'light_red.xml',
-     'light_teal.xml',
-     'light_yellow.xml']
-
-
-
-Custom colors
--------------
-
-`Color Tool <https://material.io/resources/color/>`__ is the best way to
-generate new themes, just choose colors and export as ``Android XML``,
-the theme file must look like:
+To apply any of these themes, pass the filename to
+``apply_stylesheet()``:
 
 .. code:: ipython3
 
-    <!--?xml version="1.0" encoding="UTF-8"?-->
-    <resources>
-    <color name="primaryColor">#00e5ff</color>
-    <color name="primaryLightColor">#6effff</color>
-    <color name="secondaryColor">#f5f5f5</color>
-    <color name="secondaryLightColor">#ffffff</color>
-    <color name="secondaryDarkColor">#e6e6e6</color>
-    <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#000000</color>
-    </resources>
-
-Save it as ``my_theme.xml`` or similar and apply the style sheet from
-Python.
-
-.. code:: ipython3
-
-    apply_stylesheet(app, theme='dark_teal.xml')
+    apply_stylesheet(app, theme='light_purple.xml')
 
 Light themes
 ------------
 
-Light themes will need to add ``invert_secondary`` argument as ``True``.
+When using a light theme, it’s recommended to enable
+``invert_secondary=True`` to ensure text and contrast are properly
+rendered for bright backgrounds.
 
 .. code:: ipython3
 
+    from qt_material import apply_stylesheet
+    
     apply_stylesheet(app, theme='light_red.xml', invert_secondary=True)
 
-Environ variables
------------------
+This helps maintain proper visibility and icon behavior in light mode.
 
-There is a environ variables related to the current theme used, these
-variables are for **consult purpose only**.
+Environment Variables
+---------------------
 
-+------------------------+--------------------------------+-----------+
-| Environ variable       | Description                    | Example   |
-+========================+================================+===========+
-| Q                      | Primary color                  | #2979ff   |
-| TMATERIAL_PRIMARYCOLOR |                                |           |
-+------------------------+--------------------------------+-----------+
-| QTMATE                 | A bright version of the        | #75a7ff   |
-| RIAL_PRIMARYLIGHTCOLOR | primary color                  |           |
-+------------------------+--------------------------------+-----------+
-| QTM                    | Secondary color                | #f5f5f5   |
-| ATERIAL_SECONDARYCOLOR |                                |           |
-+------------------------+--------------------------------+-----------+
-| QTMATERI               | A bright version of the        | #ffffff   |
-| AL_SECONDARYLIGHTCOLOR | secondary color                |           |
-+------------------------+--------------------------------+-----------+
-| QTMATER                | A dark version of the primary  | #e6e6e6   |
-| IAL_SECONDARYDARKCOLOR | color                          |           |
-+------------------------+--------------------------------+-----------+
-| QTMAT                  | Color for text over primary    | #000000   |
-| ERIAL_PRIMARYTEXTCOLOR | background                     |           |
-+------------------------+--------------------------------+-----------+
-| QTMATER                | Color for text over secondary  | #000000   |
-| IAL_SECONDARYTEXTCOLOR | background                     |           |
-+------------------------+--------------------------------+-----------+
-| QTMATERIAL_THEME       | Name of theme used             | light     |
-|                        |                                | _blue.xml |
-+------------------------+--------------------------------+-----------+
+The following environment variables are related to the current theme
+used. These variables are **for consultation purposes only**.
 
-Alternative QPushButtons and custom fonts
------------------------------------------
-
-There is an ``extra`` argument for accent colors and custom fonts.
-
-.. code:: ipython3
-
-    extra = {
-    
-        # Button colors
-        'danger': '#dc3545',
-        'warning': '#ffc107',
-        'success': '#17a2b8',
-    
-        # Font
-        'font_family': 'Roboto',
-    }
-    
-    apply_stylesheet(app, 'light_cyan.xml', invert_secondary=True, extra=extra)
-
-The accent colors are applied to ``QPushButton`` with the corresponding
-``class`` property:
-
-.. code:: ipython3
-
-    pushButton_danger.setProperty('class', 'danger')
-    pushButton_warning.setProperty('class', 'warning')
-    pushButton_success.setProperty('class', 'success')
-
-.. figure:: _images/extra.png
-   :alt: extra
-
-   extra
-
-Custom stylesheets
-------------------
-
-Custom changes can be performed by overwriting the stylesheets, for
-example:
-
-.. code:: ipython3
-
-    QPushButton {{
-      color: {QTMATERIAL_SECONDARYCOLOR};
-      text-transform: none;
-      background-color: {QTMATERIAL_PRIMARYCOLOR};
-    }}
-    
-    .big_button {{
-      height: 64px;
-    }}
-
-Then, the current stylesheet can be extended just with:
-
-.. code:: ipython3
-
-    apply_stylesheet(app, theme='light_blue.xml', css_file='custom.css')
-
-The stylesheet can also be changed on runtime by:
-
-.. code:: ipython3
-
-    stylesheet = app.styleSheet()
-    with open('custom.css') as file:
-        app.setStyleSheet(stylesheet + file.read().format(**os.environ))
-
-And the class style can be applied with the ``setProperty`` method:
-
-.. code:: ipython3
-
-    self.main.pushButton.setProperty('class', 'big_button')
-
-.. figure:: _images/custom.png
-   :alt: extra
-
-   extra
++--------------------------+-------------------------------+-----------+
+| Environment Variable     | Description                   | Example   |
++==========================+===============================+===========+
+| QTMATERIAL_PRIMARYCOLOR  | Primary color                 | #2979ff   |
++--------------------------+-------------------------------+-----------+
+| QTMA                     | A bright version of the       | #75a7ff   |
+| TERIAL_PRIMARYLIGHTCOLOR | primary color                 |           |
++--------------------------+-------------------------------+-----------+
+| Q                        | Secondary color               | #f5f5f5   |
+| TMATERIAL_SECONDARYCOLOR |                               |           |
++--------------------------+-------------------------------+-----------+
+| QTMATE                   | A bright version of the       | #ffffff   |
+| RIAL_SECONDARYLIGHTCOLOR | secondary color               |           |
++--------------------------+-------------------------------+-----------+
+| QTMAT                    | A dark version of the         | #e6e6e6   |
+| ERIAL_SECONDARYDARKCOLOR | secondary color               |           |
++--------------------------+-------------------------------+-----------+
+| QTM                      | Color for text over primary   | #000000   |
+| ATERIAL_PRIMARYTEXTCOLOR | background                    |           |
++--------------------------+-------------------------------+-----------+
+| QTMAT                    | Color for text over secondary | #000000   |
+| ERIAL_SECONDARYTEXTCOLOR | background                    |           |
++--------------------------+-------------------------------+-----------+
+| QTMATERIAL_THEME         | Name of theme used            | light     |
+|                          |                               | _blue.xml |
++--------------------------+-------------------------------+-----------+
 
 Run examples
 ------------
 
-A window with almost all widgets (see the previous screenshots) are
+A window with almost all widgets (see the previous screenshots) is
 available to test all themes and **create new ones**.
 
-.. code:: ipython3
+.. code:: bash
 
-    git clone https://github.com/UN-GCPDS/qt-material.git
-    cd qt-material
-    python setup.py install
-    cd examples/full_features
-    python main.py --pyside6
+   git clone https://github.com/UN-GCPDS/qt-material.git
+   cd qt-material
+   python setup.py install
+   cd examples/full_features
+   python main.py --pyside6
+
+This will launch a live preview application where you can:
+
+-  Browse all available themes
+-  Switch stylesheets at runtime
+-  Customize fonts and colors
+-  Export your personalized theme
 
 .. figure:: _images/theme.gif
    :alt: theme
 
    theme
-
-New themes
-----------
-
-Do you have a custom theme? it looks good? create a `pull
-request <https://github.com/UN-GCPDS/qt-material/pulls>`__ in `themes
-folder <https://github.com/UN-GCPDS/qt-material/tree/master/qt_material/themes%3E>`__
-and share it with all users.
-
-Change theme in runtime
------------------------
-
-There is a ``qt_material.QtStyleTools`` class that must be inherited
-along to ``QMainWindow`` for change themes in runtime using the
-``apply_stylesheet()`` method.
-
-.. code:: ipython3
-
-    class RuntimeStylesheets(QMainWindow, QtStyleTools):
-        
-        def __init__(self):
-            super().__init__()
-            self.main = QUiLoader().load('main_window.ui', self)
-            
-            self.apply_stylesheet(self.main, 'dark_teal.xml')
-            # self.apply_stylesheet(self.main, 'light_red.xml')
-            # self.apply_stylesheet(self.main, 'light_blue.xml')
-
-.. figure:: _images/runtime.gif
-   :alt: run
-
-   run
-
-Integrate stylesheets in a menu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A custom *stylesheets menu* can be added to a project for switching
-across all default available themes.
-
-.. code:: ipython3
-
-    class RuntimeStylesheets(QMainWindow, QtStyleTools):
-        
-        def __init__(self):
-            super().__init__()
-            self.main = QUiLoader().load('main_window.ui', self)
-            
-            self.add_menu_theme(self.main, self.main.menuStyles)
-
-.. figure:: _images/runtime_menu.gif
-   :alt: menu
-
-   menu
-
-Create new themes
------------------
-
-A simple interface is available to modify a theme in runtime, this
-feature can be used to create a new theme, the theme file is created in
-the main directory as ``my_theme.xml``
-
-.. code:: ipython3
-
-    class RuntimeStylesheets(QMainWindow, QtStyleTools):
-        
-        def __init__(self):
-            super().__init__()
-            self.main = QUiLoader().load('main_window.ui', self)
-            
-            self.show_dock_theme(self.main)
-
-.. figure:: _images/runtime_dock.gif
-   :alt: dock
-
-   dock
-
-A full set of examples are available in the `exmaples
-directory <https://github.com/UN-GCPDS/qt-material/blob/master/examples/runtime/>`__
-
-Export theme
-------------
-
-This feature able to use ``qt-material`` themes into ``Qt``
-implementations using only local files.
-
-.. code:: ipython3
-
-    from qt_material import export_theme
-    
-    extra = {
-    
-        # Button colors
-        'danger': '#dc3545',
-        'warning': '#ffc107',
-        'success': '#17a2b8',
-    
-        # Font
-        'font_family': 'monoespace',
-        'font_size': '13px',
-        'line_height': '13px',
-    
-        # Density Scale
-        'density_scale': '0',
-    
-        # environ
-        'pyside6': True,
-        'linux': True,
-    
-    }
-    
-    export_theme(theme='dark_teal.xml', 
-                 qss='dark_teal.qss', 
-                 rcc='resources.rcc',
-                 output='theme', 
-                 prefix='icon:/', 
-                 invert_secondary=False, 
-                 extra=extra,
-                )
-
-This script will generate both ``dark_teal.qss`` and ``resources.rcc``
-and a folder with all theme icons called ``theme``.
-
-The files generated can be integrated into a ``PySide6`` application
-just with:
-
-.. code:: ipython3
-
-    import sys
-    
-    from PySide6 import QtWidgets
-    from PySide6.QtCore import QDir
-    from __feature__ import snake_case, true_property
-    
-    # Create application
-    app = QtWidgets.QApplication(sys.argv)
-    
-    # Load styles
-    with open('dark_teal.qss', 'r') as file:
-        app.style_sheet = file.read()
-    
-    # Load icons
-    QDir.add_search_path('icon', 'theme')
-    
-    # App
-    window = QtWidgets.QMainWindow()
-    checkbox = QtWidgets.QCheckBox(window)
-    checkbox.text = 'CheckBox'
-    window.show()
-    app.exec()
-
-This files can also be used into non ``Python`` environs like ``C++``.
-
-Density scale
--------------
-
-The ``extra`` arguments also include an option to set the **density
-scale**, by default is ``0``.
-
-.. code:: ipython3
-
-    extra = {
-        
-        # Density Scale
-        'density_scale': '-2',
-    }
-    
-    apply_stylesheet(app, 'default', invert_secondary=False, extra=extra)
-
-.. figure:: _images/density.gif
-   :alt: dock
-
-   dock
 
 Troubleshoots
 -------------
@@ -457,16 +228,22 @@ Troubleshoots
 QMenu
 ~~~~~
 
-``QMenu`` has multiple rendering for each Qt backend, and for each
-operating system. Even can be related with the style, like
-`fusion <https://doc.qt.io/qt-5/qtquickcontrols2-fusion.html>`__. Then,
-the ``extra`` argument also supports\ ``QMenu`` parameters to configure
-this widgest for specific combinations. This options are not affected by
-**density scale**.
+``QMenu`` may render differently depending on the Qt backend (PySide6,
+PyQt6), platform, or even the style engine
+(e.g. `Fusion <https://doc.qt.io/qt-5/qtquickcontrols2-fusion.html>`__).
+This can affect spacing, height, and padding.
 
-.. code:: ipython3
+To improve appearance or fix spacing issues, you can manually define
+``QMenu`` settings using the ``extra`` argument:
 
-    extra['QMenu'] = {
-        'height': 50,
-        'padding': '50px 50px 50px 50px',  # top, right, bottom, left
-    }
+.. code:: python
+
+   extra = {
+       'QMenu': {
+           'height': 50,
+           'padding': '10px 20px 10px 20px'  # top, right, bottom, left
+       }
+   }
+
+This customization is independent of the ``density_scale`` setting and
+can be used to ensure consistent appearance across platforms.
